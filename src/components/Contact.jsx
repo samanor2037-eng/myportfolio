@@ -4,12 +4,18 @@ export default function Contact({ contact, location }) {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState(null); // 'submitting', 'success', 'error'
   const [alertMsg, setAlertMsg] = useState('');
+  const [showForm, setShowForm] = useState(false); // Collapsed by default to prevent stacking clutter
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
+  };
+
+  const toggleForm = (e) => {
+    e.preventDefault();
+    setShowForm(!showForm);
   };
 
   const handleSubmit = async (e) => {
@@ -55,105 +61,119 @@ export default function Contact({ contact, location }) {
           <div className="contact-links">
             {contact?.email && (
               <a href={`mailto:${contact.email}`} className="contact-link">
-                <i className="fas fa-envelope"></i> {contact.email}
+                <i className="fas fa-envelope"></i> 
+                <span className="link-full-text">{contact.email}</span>
+                <span className="link-short-text">Email</span>
               </a>
             )}
             {contact?.phone && (
               <a href={contact.whatsappUrl} className="contact-link" target="_blank" rel="noopener noreferrer">
-                <i className="fas fa-phone-alt"></i> {contact.phone}
+                <i className="fas fa-phone-alt"></i> 
+                <span className="link-full-text">{contact.phone}</span>
+                <span className="link-short-text">WhatsApp</span>
               </a>
             )}
             {contact?.facebookUrl && (
               <a href={contact.facebookUrl} className="contact-link" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-facebook-f"></i> Salah Ali Samanor
+                <i className="fab fa-facebook-f"></i> 
+                <span className="link-full-text">Salah Ali Samanor</span>
+                <span className="link-short-text">Facebook</span>
               </a>
             )}
             {contact?.linkedinUrl && (
               <a href={contact.linkedinUrl} className="contact-link" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-linkedin"></i> Salah Ali Samanor
+                <i className="fab fa-linkedin"></i> 
+                <span className="link-full-text">Salah Ali Samanor</span>
+                <span className="link-short-text">LinkedIn</span>
               </a>
             )}
           </div>
           
-          <a href="#contact-form" className="btn-primary" style={{ marginTop: '0.5rem' }}>
-            <i className="fas fa-paper-plane"></i> Send Direct Message
-          </a>
+          <button 
+            onClick={toggleForm} 
+            className={showForm ? "btn-primary active-toggle" : "btn-primary"} 
+            style={{ marginTop: '0.5rem' }}
+          >
+            <i className={showForm ? "fas fa-times" : "fas fa-paper-plane"}></i> {showForm ? "Close Message Form" : "Send Direct Message"}
+          </button>
 
-          {/* Dynamic Interactive Message Form */}
-          <form id="contact-form" className="contact-form" onSubmit={handleSubmit}>
-            <h4>Send a Message</h4>
+          {/* Dynamic Collapsible Message Form */}
+          {showForm && (
+            <form id="contact-form" className="contact-form" onSubmit={handleSubmit}>
+              <h4>Send a Message</h4>
 
-            {status === 'success' && (
-              <div className="form-alert success">
-                <i className="fas fa-check-circle"></i> {alertMsg}
-              </div>
-            )}
-
-            {status === 'error' && (
-              <div className="form-alert error">
-                <i className="fas fa-exclamation-circle"></i> {alertMsg}
-              </div>
-            )}
-
-            <div className="form-group">
-              <label htmlFor="name">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Enter your name"
-                disabled={status === 'submitting'}
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Enter your email"
-                disabled={status === 'submitting'}
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                rows="4"
-                placeholder="Write your message here..."
-                disabled={status === 'submitting'}
-                required
-              ></textarea>
-            </div>
-
-            <button 
-              type="submit" 
-              className="btn-primary" 
-              style={{ width: '100%', borderRadius: '12px' }}
-              disabled={status === 'submitting'}
-            >
-              {status === 'submitting' ? (
-                <>
-                  <i className="fas fa-spinner fa-spin"></i> Sending...
-                </>
-              ) : (
-                <>
-                  <i className="fas fa-paper-plane"></i> Send Message
-                </>
+              {status === 'success' && (
+                <div className="form-alert success">
+                  <i className="fas fa-check-circle"></i> {alertMsg}
+                </div>
               )}
-            </button>
-          </form>
+
+              {status === 'error' && (
+                <div className="form-alert error">
+                  <i className="fas fa-exclamation-circle"></i> {alertMsg}
+                </div>
+              )}
+
+              <div className="form-group">
+                <label htmlFor="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Enter your name"
+                  disabled={status === 'submitting'}
+                  required
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Enter your email"
+                  disabled={status === 'submitting'}
+                  required
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows="4"
+                  placeholder="Write your message here..."
+                  disabled={status === 'submitting'}
+                  required
+                ></textarea>
+              </div>
+
+              <button 
+                type="submit" 
+                className="btn-primary" 
+                style={{ width: '100%', borderRadius: '12px' }}
+                disabled={status === 'submitting'}
+              >
+                {status === 'submitting' ? (
+                  <>
+                    <i className="fas fa-spinner fa-spin"></i> Sending...
+                  </>
+                ) : (
+                  <>
+                    <i className="fas fa-paper-plane"></i> Send Message
+                  </>
+                )}
+              </button>
+            </form>
+          )}
 
           <p style={{ fontSize: '0.75rem', marginTop: '2.5rem', color: '#6b8cae' }}>
             📍 {location}

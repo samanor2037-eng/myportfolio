@@ -510,6 +510,9 @@ section {
   flex-wrap: wrap;
   margin: 1.8rem 0;
 }
+.link-short-text {
+  display: none;
+}
 .contact-link {
   background: white;
   padding: 0.6rem 1.4rem;
@@ -769,18 +772,33 @@ footer {
   }
 
   .contact-links {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 0.8rem;
-    align-items: stretch;
     margin: 1.5rem 0;
   }
 
   .contact-link {
     justify-content: center;
-    width: 100%;
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 0.5rem;
     font-size: 0.9rem;
     box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    border-radius: 16px;
+  }
+
+  .link-full-text {
+    display: none;
+  }
+
+  .link-short-text {
+    display: inline;
+  }
+
+  .active-toggle {
+    background: linear-gradient(105deg, #991b1b, #b91c1c) !important;
+  }
+  .active-toggle:hover {
+    background: linear-gradient(105deg, #7f1d1d, #991b1b) !important;
   }
 
   .contact-form {
