@@ -65,7 +65,10 @@ function App() {
   if (loading) {
     return (
       <div className="loading-container">
-        <div className="spinner"></div>
+        <div className="loading-logo-wrapper">
+          <div className="spinner"></div>
+          <img src="/logo.png" alt="Samanor Logo" className="loading-logo" />
+        </div>
         <h2>Loading Portfolio...</h2>
       </div>
     );
