@@ -23,7 +23,7 @@ export default function Hero({ personalInfo }) {
             <h1>{personalInfo?.name}</h1>
             <div className="hero-tagline">{personalInfo?.tagline}</div>
             <p className="hero-desc">{personalInfo?.description}</p>
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <div className="hero-buttons">
               <a href="#projects" className="btn-primary">
                 <i className="fas fa-arrow-right"></i> Explore Work
               </a>

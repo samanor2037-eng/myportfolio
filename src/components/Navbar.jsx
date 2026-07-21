@@ -1,20 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function Navbar({ personalInfo }) {
-  const logoName = personalInfo?.name ? personalInfo.name.split(' ').slice(0, 2).join(' ').toUpperCase() : 'SALAH ALI';
+  const [isOpen, setIsOpen] = useState(false);
+
+  const logoName = personalInfo?.name 
+    ? personalInfo.name.split(' ').slice(0, 2).join(' ').toUpperCase() 
+    : 'SALAH ALI';
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleLinkClick = () => {
+    setIsOpen(false);
+  };
 
   return (
     <header>
       <div className="container">
         <nav>
           <div className="logo">{logoName}</div>
-          <ul className="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
+          
+          {/* Mobile Menu Toggle Button */}
+          <button className="menu-btn" onClick={toggleMenu} aria-label="Toggle menu">
+            <i className={isOpen ? "fas fa-times" : "fas fa-bars"}></i>
+          </button>
+
+          {/* Navigation Links */}
+          <ul className={isOpen ? "nav-links open" : "nav-links"}>
+            <li><a href="#home" onClick={handleLinkClick}>Home</a></li>
+            <li><a href="#about" onClick={handleLinkClick}>About</a></li>
+            <li><a href="#experience" onClick={handleLinkClick}>Experience</a></li>
+            <li><a href="#projects" onClick={handleLinkClick}>Projects</a></li>
+            <li><a href="#skills" onClick={handleLinkClick}>Skills</a></li>
+            <li><a href="#contact" onClick={handleLinkClick}>Contact</a></li>
           </ul>
         </nav>
       </div>
