@@ -1,0 +1,115 @@
+{
+  "personalInfo": {
+    "name": "Salah Ali Mohamed Nor",
+    "badge": "IT Professional | Innovator",
+    "tagline": "IT Specialist | System Developer | Web & Mobile App Builder",
+    "description": "Building practical digital solutions for real-world problems — from land registration to school management systems.",
+    "profileImage": "myimage.png",
+    "location": "Baidoa, Somalia | Available for remote & onsite worldwide"
+  },
+  "about": {
+    "education": {
+      "title": "Education & Background",
+      "summary": "Born in 2001, IT professional with deep experience in software development, system building, and digital transformation.",
+      "items": [
+        "Al Qalam School (2020–2021)",
+        "BSc IT, Baidoa International University (2025)",
+        "Marwaaz Institute (2015) – Computer cert",
+        "English Diploma & online courses (Coursera)"
+      ]
+    },
+    "professional": {
+      "title": "Personal & Professional",
+      "summary": "Patient, hardworking, solution-oriented and calm. I thrive in collaborative environments and aim for long-term impact across sectors: government, NGOs, education, and private business.",
+      "qualities": [
+        "Solution-oriented",
+        "Team player",
+        "Focused",
+        "Professional"
+      ]
+    },
+    "workEthic": {
+      "title": "Work Ethic & Character",
+      "summary": "Known as patient, hardworking, skilled and solution-oriented. Calm and focused, respectful, and professional. Strong teamwork and communication — dedicated to long-term goals and impactful digital solutions."
+    }
+  },
+  "experience": [
+    {
+      "title": "Computer Teacher",
+      "company": "Marwaaz Institute",
+      "period": "2020–2022",
+      "description": "Taught Windows, Office, networking, and hardware fundamentals."
+    },
+    {
+      "title": "Notary Office Specialist",
+      "company": "Nootaayo",
+      "period": "2022 – present",
+      "description": "Digital land survey systems & legal documentation solutions."
+    },
+    {
+      "title": "IT Specialist",
+      "company": "Baidoa Municipality",
+      "period": "1 year",
+      "description": "System support, troubleshooting & infrastructure maintenance."
+    },
+    {
+      "title": "NGO & Private Sector",
+      "company": "10+ NGOs · Multiple firms",
+      "period": "Multiple projects",
+      "description": "Delivered custom IT services, system dev & consulting."
+    }
+  ],
+  "projects": [
+    {
+      "title": "Land Survey Systems",
+      "icon": "fas fa-draw-polygon",
+      "description": "For notary offices with mobile apps, mapping and secure land record storage."
+    },
+    {
+      "title": "School Management System",
+      "icon": "fas fa-school",
+      "description": "Web + mobile — attendance, grades, parent communication."
+    },
+    {
+      "title": "Lawyer Management System",
+      "icon": "fas fa-gavel",
+      "description": "Supreme Court of Southwest State: case tracking & automation."
+    },
+    {
+      "title": "Land Registration System",
+      "icon": "fas fa-city",
+      "description": "Baidoa Municipality: zoning, cadastral maps & data storage."
+    },
+    {
+      "title": "Financial System",
+      "icon": "fas fa-chart-line",
+      "description": "Web + mobile solution for private company: invoicing & reporting."
+    }
+  ],
+  "skills": {
+    "technical": [
+      "System Development (Web/Mobile)",
+      "Android Apps",
+      "Website Development",
+      "Graphic Design",
+      "MS Office Expert",
+      "Advanced IT & Networking",
+      "Fast Typing",
+      "Troubleshooting",
+      "Database Design",
+      "UI/UX"
+    ],
+    "conceptual": [
+      "Problem Solving",
+      "System Architecture",
+      "Agile Collaboration"
+    ]
+  },
+  "contact": {
+    "email": "samanur99@gmail.com",
+    "phone": "+252 61 7378000",
+    "whatsappUrl": "https://wa.link/xxb49k",
+    "facebookUrl": "https://www.facebook.com/shabeelkiisoomaaliyeed.tiger/",
+    "linkedinUrl": "https://www.linkedin.com/in/salah-ali-samanor-818685400/"
+  }
+}
