@@ -33,6 +33,35 @@ function App() {
     fetchPortfolio();
   }, []);
 
+  // Dynamically crop the logo into a circle for the browser tab icon (favicon)
+  useEffect(() => {
+    const img = new Image();
+    img.src = '/logo.png';
+    img.crossOrigin = 'anonymous';
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      const size = 64; // High-res favicon size
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+      
+      // Render circular mask clip
+      ctx.beginPath();
+      ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.clip();
+      
+      // Draw image inside circular clip
+      ctx.drawImage(img, 0, 0, size, size);
+      
+      // Dynamically inject dataURL to link rel="icon"
+      const faviconLink = document.querySelector('link[rel="icon"]');
+      if (faviconLink) {
+        faviconLink.href = canvas.toDataURL('image/png');
+      }
+    };
+  }, []);
+
   if (loading) {
     return (
       <div className="loading-container">

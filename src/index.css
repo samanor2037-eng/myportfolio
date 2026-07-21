@@ -146,15 +146,14 @@ nav {
 
 .logo-img {
   height: 32px;
-  width: 32px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 1.5px solid #2c5f8a;
-  transition: transform 0.5s ease;
+  width: auto;
+  object-fit: contain;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
 }
 
 .logo-wrapper:hover .logo-img {
-  transform: rotate(360deg);
+  transform: scale(1.05);
 }
 
 .logo-text {
@@ -632,6 +631,13 @@ footer {
 }
 
 @media (max-width: 780px) {
+  html {
+    font-size: 14px;
+  }
+  body {
+    font-size: 0.9rem;
+  }
+
   .menu-btn {
     display: block;
     background: transparent;
