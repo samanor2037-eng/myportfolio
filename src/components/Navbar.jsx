@@ -20,7 +20,10 @@ export default function Navbar({ personalInfo }) {
       <header>
         <div className="container">
           <nav>
-            <div className="logo">{logoName}</div>
+            <div className="logo-wrapper">
+              <img src="/logo.png" alt="Samanor Dev Logo" className="logo-img" />
+              <span className="logo-text">Samanor Dev</span>
+            </div>
             
             {/* Mobile Menu Toggle Button */}
             <button className="menu-btn" onClick={toggleMenu} aria-label="Toggle menu">
