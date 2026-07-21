@@ -41,10 +41,9 @@ export default function Navbar({ personalInfo }) {
             </ul>
           </nav>
         </div>
+        {/* Mobile Menu Backdrop Blur Overlay (moved inside header for proper stacking context) */}
+        <div className={isOpen ? "menu-overlay open" : "menu-overlay"} onClick={toggleMenu}></div>
       </header>
-      
-      {/* Mobile Menu Backdrop Blur Overlay */}
-      <div className={isOpen ? "menu-overlay open" : "menu-overlay"} onClick={toggleMenu}></div>
     </>
   );
 }
