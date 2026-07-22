@@ -6,6 +6,13 @@
   box-sizing: border-box;
 }
 
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   background: #fbfdff;
@@ -32,13 +39,12 @@ body {
   padding: 0 1.8rem;
 }
 
-/* Background Aesthetic Blobs */
 .bg-blobs {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   z-index: -2;
   overflow: hidden;
   pointer-events: none;
@@ -682,9 +688,10 @@ footer {
   }
 
   .nav-links {
+    display: none;
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0;
     width: 280px;
     height: 100vh;
     background: #ffffff;
@@ -693,14 +700,23 @@ footer {
     justify-content: center;
     align-items: center;
     gap: 2.5rem;
-    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 999;
     padding: 2rem;
     border-left: 1px solid #eef2fa;
   }
 
   .nav-links.open {
-    right: 0;
+    display: flex;
+    animation: slideInMenu 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes slideInMenu {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
   }
 
   .nav-links li {
